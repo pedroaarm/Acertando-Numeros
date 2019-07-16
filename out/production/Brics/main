@@ -1,0 +1,7 @@
+(defn main
+    (println "Digite um numero")
+    (do
+      (let [va (read-line)]
+        (println va))))
+
+(main)
