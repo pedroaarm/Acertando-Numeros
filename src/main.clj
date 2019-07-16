@@ -6,7 +6,7 @@
 
 
 (defn menu1 []
-  (println "1 - Jogar\n 2 - Ranking\n 3 - Cadastrar Jogados\n 4 - sair: ")
+  (println "1 - Jogarr: ")
   (let [opc (read-line)]
     (parse-int opc)
     )
@@ -15,7 +15,7 @@
 (defn sorteion []
  (rand-int 100))
 
-(defn main []
+(defn play []
   (let [sort (sorteion)]
    (def cont (atom 0))
   (println sort)
@@ -34,6 +34,22 @@
                   (println "Errou, o numero e maior")
                   (println "Errou, o numero e menor"))))
         )))))
+
+
+(defn main []
+  (def observa (atom 10))
+  (while (not (= @observa 0))
+    (do
+    (reset! observa  (menu1))
+    (case @observa 1 (play)
+      case @observa 0
+                   (do
+                     (reset! observa  0)
+                     (println "saindo..."))
+
+                  (println "opcao invalida")))))
+
+
 (main)
 
 
